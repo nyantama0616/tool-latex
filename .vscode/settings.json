@@ -1,0 +1,18 @@
+{
+	"editor.wordWrap": "bounded",
+	"latex-workshop.docker.enabled": true,
+	"latex-workshop.docker.image.latex": "paperist/texlive-ja:latest",
+	"latex-workshop.latex.tools": [
+		{
+			"name": "latexmk",
+			"command": "/usr/local/bin/texlive/latexmk", // which latexmkでlatexmkコマンドの場所を探し挿入する
+			"args": [
+				"-gg",
+				"%DOC%"
+			]
+		}
+	],
+	"latex-workshop.latex.autoClean.run": "onBuilt",
+	"textlint.nodePath": "lint/node_modules",
+	"textlint.targetPath": "*.tex",
+}
