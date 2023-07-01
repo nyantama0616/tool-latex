@@ -40,7 +40,7 @@
 		"description": "list"
 	},
 	"list-num": {
-		"prefix": "enumerate",
+		"prefix": "list-num",
 		"body": [
 			"\\begin{enumerate}",
 			"  \\item 数字の箇条書き",
