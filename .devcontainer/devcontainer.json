@@ -1,7 +1,7 @@
 {
-    "name": "latex-container",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "latex",
+	"name": "latex-container",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "latex",
 	"workspaceFolder": "/workspace",
 	"customizations": {
 		"vscode": {
