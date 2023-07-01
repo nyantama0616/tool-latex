@@ -29,13 +29,18 @@
 - main.texを開く
 - main.texを編集する
 - texファイルからpdfを作成する
-    - main.texを開いているpaneの右上に再生ボタンのようなものがあるので押す。その後main.texを開いているpaneの右上に虫眼鏡のアイコンがあるのでそれを押すとtexファイルを元にPDFが作成され、VS Code右側に生成されたPDFが表示される。
+    - main.texを開いているpaneの右上に再生ボタンのようなものがあるので押す。その後main.texを開いているpaneの右上に虫眼鏡のアイコンがあるのでそれを押すとtexファイルを元にPDFが作成され、VS Code右側に生成されたPDFが表示される。一度PDFを生成した後はctl+s（macならcmd+s）で保存した後自動でビルドするようになる。
     - もしくは、VS Code内でターミナルを開き(このReadmeファイルがあるフォルダをDocker内のコンテナのターミナルで開く)、`make comp-"フォルダ名"`と入力すると編集しているmain.texがあるフォルダ内にpdfファイルが生成される。
 
 ## 文章校正ルール
 
 - .texlintを書き換えることで、利用している既存文章校正ルールを変更できる
 - prh.ymlで独自の文章校正ルールを作成できる
+
+## スニペット
+
+.vscode/latex.code-snippetsを編集することで、texファイル内で使えるスニペットを定義することができる。[8]
+
 
 ## 参考
 
@@ -46,3 +51,4 @@
 - [5] [VS Codeの使い方](https://tech-lab.sios.jp/archives/31704)
 - [6] [VS Code 拡張機能 Dev Containerの使い方](https://techblog.roxx.co.jp/entry/2021/04/19/132838#:~:text=devcontainer.json-,%E6%9C%80%E5%BE%8C%E3%81%AB,-%E3%80%81devcontainer.json)
 - [7] [VS Codeでターミナルを開く方法](https://www.javadrive.jp/vscode/terminal/index1.html)
+- [8] [VS Codeのスニペット定義参考](https://qiita.com/rainbartown/items/d7718f12d71e688f3573#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%B9%E3%83%8B%E3%83%9A%E3%83%83%E3%83%88)
