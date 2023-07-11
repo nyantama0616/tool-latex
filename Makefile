@@ -1,3 +1,6 @@
+init:
+	sudo rm -r .git
+
 comp-%: # make comp-test と入力することで、test下のmain.texを元にpdfが生成される
 	cd ${@:comp-%=%} && latexmk -C ./main.tex && latexmk main.tex && latexmk -c main.tex
 
