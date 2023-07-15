@@ -5,32 +5,34 @@
 ## 前提条件
 
 以下のツールをインストールしておくこと
+
 - docker (docker-desktop)[3][4]
-    - Linux利用者は自分で調べて下さい（わざわざLinux使ってるくらいなので、そのくらいできるはず）。
+  - Linux利用者は自分で調べて下さい（わざわざLinux使ってるくらいなので、そのくらいできるはず）。
 - VS Code [1]
-    - Remote Developmentの拡張機能をインストールしておくこと[2]。ただし、sshの設定等は不要で、インストールのみで良い
+  - Remote Developmentの拡張機能をインストールしておくこと[2]。ただし、sshの設定等は不要で、インストールのみで良い
 
 ## 動作確認
 
 以下の環境で動作することを確認している
+
 - Mac
-    - M1 Monterey
+  - M1 Monterey
 - Windows
-    - Windows 10 (with WSL)
+  - Windows 10 (with WSL)
 
 ## 利用方法
 
 - VS Codeでこのフォルダを開く[5]
 - VS CodeでDev Containerを使ってこのフォルダを開き直す (正確にはDockerコンテナをVS Codeで開き、Dockerコンテナ上のフォルダをVS Codeで編集する)[6]
 - docker上のターミナル[7]で、`make new-"folder名"`で各学会、卒論ごとのフォルダを作成する
-    - `make new-graduate`でgraduateというフォルダが作成される（graduateフォルダの中にlatex作成に必要なlatexmkrcが作成される）
+  - `make new-graduate`でgraduateというフォルダが作成される（graduateフォルダの中にlatex作成に必要なlatexmkrcが作成される）
 - 学会や卒論のテンプレートファイル一式をダウンロードし（だいたいHPのどこかにある）、作成したフォルダの中に入れる
 - `documentclass`や`usepackage`という記述が含まれた、pdf作成の起点となるtexファイルがあるはずなので、そのファイルの名前を`main.tex`に変更する
 - main.texを開く
 - main.texを編集する
 - texファイルからpdfを作成する
-    - main.texを開いているpaneの右上に再生ボタンのようなものがあるので押す。その後main.texを開いているpaneの右上に虫眼鏡のアイコンがあるのでそれを押すとtexファイルを元にPDFが作成され、VS Code右側に生成されたPDFが表示される。一度PDFを生成した後はctl+s（macならcmd+s）で保存した後自動でビルドするようになる。
-    - もしくは、VS Code内でターミナルを開き(このReadmeファイルがあるフォルダをDocker内のコンテナのターミナルで開く)、`make comp-"フォルダ名"`と入力すると編集しているmain.texがあるフォルダ内にpdfファイルが生成される。
+  - main.texを開いているpaneの右上に再生ボタンのようなものがあるので押す。その後main.texを開いているpaneの右上に虫眼鏡のアイコンがあるのでそれを押すとtexファイルを元にPDFが作成され、VS Code右側に生成されたPDFが表示される。一度PDFを生成した後はctl+s（macならcmd+s）で保存した後自動でビルドするようになる。
+  - もしくは、VS Code内でターミナルを開き(このReadmeファイルがあるフォルダをDocker内のコンテナのターミナルで開く)、`make comp-"フォルダ名"`と入力すると編集しているmain.texがあるフォルダ内にpdfファイルが生成される。
 
 ## 文章校正ルール
 
@@ -40,6 +42,12 @@
 ## スニペット
 
 .vscode/latex.code-snippetsを編集することで、texファイル内で使えるスニペットを定義することができる。[8]
+
+## 注意
+
+- IPSJのテンプレートを最初の状態のまま使用すると、linterが働きません。原因はテンプレートに書かれている一部表現が、linterのテキスト解析を邪魔するからです。「はじめに」以下の本文を消すとlinterが動作するようになるので、気にしないでください。
+- main.texを入れるフォルダは以下のルールを守ってください（lintの関係です）
+  - フォルダ名は一文字以上、特殊な文字を入れない
 
 
 ## 参考

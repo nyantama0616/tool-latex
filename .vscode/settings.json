@@ -79,4 +79,5 @@
 	// textlintの実行ファイルを拡張機能が読み込めるよう指定
 	"textlint.nodePath": "lint/node_modules",
 	"textlint.targetPath": "*.tex",
+	"textlint.configPath": "/workspace/.textlintrc",
 }
