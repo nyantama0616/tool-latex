@@ -1,9 +1,11 @@
 # LaTeX
-$latex = 'platex -synctex=1 -halt-on-error -file-line-error %O %S';
+$latex = 'platex -synctex=1 -halt-on-error -file-line-error %O %S'; # platexでコンパイルするときはこちらを利用（コメントオフ）
+# $latex            = 'uplatex -halt-on-error -file-line-error %O %S'; # uplatexでコンパイルするときはこちらを利用（コメントオフ）
 $max_repeat = 5;
 
 # BibTeX
-$bibtex = 'pbibtex %O %S';
+$bibtex = 'pbibtex %O %S'; # platexでコンパイルするときはこちらを利用（コメントオフ）
+# $bibtex           = 'upbibtex %O %S'; # uplatexでコンパイルするときはこちらを利用（コメントオフ）
 $biber = 'biber --bblencoding=utf8 -u -U --output_safechars %O %S';
 
 # index
