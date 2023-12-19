@@ -1,0 +1,172 @@
+% # 公立はこだて未来大学・卒業論文テンプレートファイル(unicode)
+%
+% ## 改訂履歴：
+% - 2019/11/18 修士論文テンプレート初版 作成者：三上貞芳
+% （https://github.com/kmiya/naist-thesis-tmpl を一部参照）
+% - 2019/12/05 卒業論文用に改変：寺沢憲吾
+% - 2021/11/29 詳細調整：中小路久美代
+% - 2021/12/12 詳細調整とヘッダーとフッターが表示されないバグを修正：久末瑠紅
+% - 2021/12/27 日英タイトルが複数行になる場合の対処のためjtitle, etitleの前後のvspaceをvfillに変更：中小路久美代
+%
+% ## 論文作成の手順
+%
+% 1. 以下のtexファイルを作成してください
+% - cover.tex           氏名・タイトル等の表紙情報
+% - eabstract.tex       英語アブストラクト
+% - jabstract.tex       日本語アブストラクト
+% - chapterX.tex        本文第X章
+% - publications.tex    発表・採録等の実績（確定分も含む）←※卒論では必須としない
+% - acknowledgment.tex  謝辞
+% - bibliography.tex    参考文献
+%
+% 2. このテンプレートの「TODO: 本文」以下に，作成した章に対応する\input{chapterX.tex}文を追記してください(Xは章番号)．付録の場合は「TODO: 付録」以下に追記してください．
+% 2-1. 「TODO: 付録」の部分は，必要がなければ削除してください（大半の学生は必要がないと思います）
+% 2-2. 「図表一覧等自動生成」は，初期設定ではオフにしてあります．必要があればオンにしてください（コメント化を解除してください）．
+%
+% 3. このテンプレートをuplatex環境でコンパイルし，PDFを作成します．Overleaf環境においては、コンパイラを「LaTeX」としてください
+% 4. タイトルが2行以上となる場合、表紙が2ページに分かれてしまうことがあります。93行目までの"vspace"を調整することで対処することが可能ですが、大幅な変更は避けてください。
+
+%-------------------------------------
+% 未来大卒論書式設定
+\input{funstyle_bachelor}
+
+% TODO: タイトル・著者等の情報
+\input{cover.tex}
+
+% TODO: 英語アブストラクト
+\input{eabstract.tex}
+
+% TODO: 日本語アブストラクト
+\input{jabstract.tex}
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\vspace*{1truemm}
+\begin{center}
+    \LARGE\bfseries
+    卒業論文
+\end{center}
+% \vspace*{2truemm}
+\vfill
+\begin{center}
+    \LARGE\bfseries\jtitle
+\end{center}
+\vspace*{1em}
+\vfill
+\begin{center}
+    \large\bfseries 公立はこだて未来大学\par%
+    システム情報科学部~~\jdepartment\par%
+    \jcourse~~\studentID
+\end{center}
+%%% \vspace*{1em}
+\vspace{0.3em}
+\begin{center}
+    \Large\bfseries\jauthor
+\end{center}
+\vspace*{1em}
+\begin{center}
+    \large 指導教員~~~~\jadvisor\par
+    \vspace{0.5em}
+    \large 提出日~~~~\jdate
+\end{center}
+\vspace*{3em}
+\begin{center}
+\textbf{\Large BA Thesis}\par
+\vspace*{2em}
+\textbf{\Large \etitle}\par
+\vspace*{1em}
+{\normalsize by}\par
+\vspace*{1em}
+{\large \eauthor}\par
+\vspace*{1.5em}
+\ecourse, \edepartment \par
+School of Systems Information Science, Future University Hakodate
+
+\vspace*{1em}
+\normalsize Supervisor: \quad \eadvisor \par
+\vspace*{0.5em}
+Submitted on \edate
+\end{center}
+%\vspace*{\fill}
+
+% 英語アブストラクト作成
+\clearpage
+\thispagestyle{empty}
+%\vspace*{30truemm}
+\noindent
+\textbf{Abstract--}~
+\eabstract
+
+\vspace*{1em}
+\noindent
+\textbf{Keywords:}~ 
+\ekeywords
+
+% 日本語アブストラクト作成
+%\newpage
+%\thispagestyle{empty}
+\vspace*{20truemm}
+\noindent
+\textgt{概~要：}~
+\jabstract
+
+\vspace*{1em}
+\noindent
+\textgt{キーワード：}~ 
+\jkeywords
+
+% 目次
+\clearpage\setcounter{page}{0}\pagenumbering{roman}\pagestyle{plain}
+\tableofcontents
+\thispagestyle{plain}
+
+%-------------------------------------
+% ページ番号，ヘッダー・フッターの設定
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancy}
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{fancy}
+%-------------------------------------
+
+% TODO: 本文
+\input{chapter1.tex} 
+\input{chapter2.tex} 
+\input{chapter3.tex} 
+\input{chapter4.tex} 
+\input{chapter5.tex}
+
+
+% 以下必要に応じてchapterX.texを作成してinput文を記入
+
+% TODO: 謝辞
+\input{acknowledgment.tex}
+
+% TODO: 発表等実績
+% \input{publications.tex}
+
+
+% TODO: 参考文献
+\input{bibliography.tex}
+
+% TODO: 付録．必要がなければ削除すること
+\appendix
+\input{chapterA1.tex} 
+
+% 図表一覧等自動生成
+%\listoffigures
+%\thispagestyle{plain}
+%\listoftables
+%\thispagestyle{plain}
+
+
+\end{document}
+%-------------------------------------
